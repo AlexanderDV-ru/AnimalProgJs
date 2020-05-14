@@ -1,4 +1,4 @@
-<!--- Name: AnimalProgJs/Vesion: 0.0.1a/Authors: AlexanderDV/Description: Main AnimalProgJs .html. --->
+<!--- Name: AnimalProgJs/Vesion: 0.0.2a/Authors: AlexanderDV/Description: Main AnimalProgJs .html. --->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,39 +8,133 @@
 		<style>
 			body {
 			}
+			.group{
+				margin-left: 10px;
+				border:1px solid black;
+				width:fit-content;
+				height:fit-content;
+				overflow: hidden;
+			}
+			.entity{
+				position:relative;
+				width:fit-content;
+				height:fit-content;
+			}
 		</style>
 	</head>
 	<body>
-		<textarea id="codeArea"></textarea>
-		<textarea id="commandsArea"></textarea>
-		<button id="setCommandsButton" class="$setCommands$"></button>
-		<br>
-		<label class="$language$"></label>
-		<select id="languageSelect">
-			<option>Commands</option>
-			<option>javascript</option>
-		</select>
-		<br>
-		<button class="$perform$" id="performButton"></button>
-		<br>
-		<label class="$tryes$"></label>: <label id="tryesLabel"></label>
-		<br>
-		<label class="$wins$"></label>: <label id="winsLabel"></label>
-		<br>
 		<div>
-			<div style="position:absolute;" id="dinoDiv">
-				Dino
-				<br>
-				<image src="dino.jpg" style="width:100px;height:100px;"></image>
+			<label class="mover $options$"></label>
+			<input id="optionsHider" checked type="checkbox"><br>
+			<div id="optionsGroupDiv" class="group">
+				<div id="optionsDiv">
+					<label class="$spawn$"></label>
+					<div id="spawnOptionsGroupDiv" class="group">
+						<div id="spawnOptionsDiv">
+							<label class="$randomStartDinoSpawn$"></label>
+							<input class="storable" type="checkbox" id="randomStartDinoSpawnOptionCheckbox" checked>
+							<br>
+							<label class="$randomStartChestSpawn$"></label>
+							<input class="storable" type="checkbox" id="randomStartChestSpawnOptionCheckbox" checked>
+							<br>
+							<label class="$randomNewGameDinoSpawn$"></label>
+							<input class="storable" type="checkbox" id="randomNewGameDinoSpawnOptionCheckbox" checked>
+							<br>
+							<label class="$randomNewGameChestSpawn$"></label>
+							<input class="storable" type="checkbox" id="randomNewGameChestSpawnOptionCheckbox" checked>
+						</div>
+					</div>
+					<label class="$counters$"></label>
+					<div id="countersOptionsGroupDiv" class="group">
+						<div id="countersOptionsDiv">
+						</div>
+					</div>
+					<label class="$map$"></label>
+					<div id="mapOptionsGroupDiv" class="group">
+						<div id="mapOptionsDiv">
+							<div id="mapWidthOptionDiv">
+								<label class="$mapWidth$"></label>
+								<input class="storable" type="number" id="mapWidthOptionInput" oninput="mapDiv.style.width=this.value+'px'">
+							</div>
+							<div id="mapHeightOptionDiv">
+								<label class="$mapHeight$"></label>
+								<input class="storable" type="number" id="mapHeightOptionInput" oninput="mapDiv.style.height=this.value+'px'">
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div style="position:absolute;" id="chestDiv">
-				Chest
-				<br>
-				<image src="chest.jpg" style="width:100px;height:100px;"></image>
+		</div>
+		<div>
+			<label class="mover $control$"></label>
+			<input id="controlHider" checked type="checkbox"><br>
+			<div id="controlGroupDiv" class="group">
+				<div id="controlDiv">
+					<textarea class="storable" id="codeArea"></textarea>
+					<textarea id="commandsArea"></textarea>
+					<button id="setCommandsButton" class="$setCommands$"></button>
+					<br>
+					<label class="$language$"></label>
+					<select id="languageSelect">
+						<option>Commands</option>
+						<option>javascript</option>
+					</select>
+					<br>
+					<button class="$perform$" id="performButton"></button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<label class="mover $counters$"></label>
+			<input id="countersHider" checked type="checkbox"><br>
+			<div id="countersGroupDiv" class="group">
+				<div id="countersDiv">
+				</div>
+			</div>
+		</div>
+		<button class="$start$" id="startButton"></button>
+		<div>
+			<label class="mover $map$"></label>
+			<input id="mapHider" checked type="checkbox"><br>
+			<div id="mapGroupDiv" class="group">
+				<div id="mapDiv">
+				</div>
+			</div>
+		</div>
+		<div>
+			<label id="instancesNameLabel" class="mover $instances$"></label>
+			<input id="instancesHider" checked type="checkbox"><br>
+			<div id="instancesGroupDiv" class="group">
+				<div id="instancesDiv">
+					<div class="entity" id="dinoDiv">
+						<image id="dinoImage" src="dino.jpg" style="width:100px;height:100px;"></image>
+					</div>
+					<input class="storable" id="dinoInstanceSrcInput" value="dino.jpg" oninput="dinoImage.src=this.value||'dino.jpg'">
+					<input class="storable" id="dinoInstanceWidthInput" value="100px" oninput="dinoImage.style.width=this.value||'100px'">
+					<input class="storable" id="dinoInstanceHeightInput" value="100px" oninput="dinoImage.style.height=this.value||'100px'">
+					<div class="entity" id="chestDiv">
+						<image id="chestImage" src="chest.jpg" style="width:100px;height:100px;"></image>
+					</div>
+					<input class="storable" id="chestInstanceSrcInput" value="chest.jpg" oninput="chestImage.src=this.value||'chest.jpg'">
+					<input class="storable" id="chestInstanceWidthInput" value="100px" oninput="chestImage.style.width=this.value||'100px'">
+					<input class="storable" id="chestInstanceHeightInput" value="100px" oninput="chestImage.style.height=this.value||'100px'">
+				</div>
+			</div>
+		</div>
+		<div>
+			<label class="mover $debug$"></label>
+			<input id="debugHider" checked type="checkbox"><br>
+			<div id="debugGroupDiv" class="group" style="display:none">
+				<div id="debugDiv">
+					<textarea class="storable" id="debugEnterCodeArea"></textarea>
+					<button onclick="eval(debugEnterCodeArea.value)" class="$perform$"></button>
+				</div>
 			</div>
 		</div>
 
 		<!-- Libs -->
+		<script type="text/javascript" src="lib/utils.js"></script>
+		<script type="text/javascript" src="lib/functions.js"></script>
 
 		<!-- Scripts -->
 
