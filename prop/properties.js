@@ -2,7 +2,7 @@
 //Properties
 var props	=	{}
 props.msgs  = {
-	en  : {
+	"en-US"  : {
 		//Part
 			"options"	:	"Options",
 			"control"	:	"Control",
@@ -34,7 +34,7 @@ props.msgs  = {
 		//Buttons
 			"start"	:	"Start",
 	},
-	ru  : {
+	"ru-RU"  : {
 		//Part
 			"options"	:	"Настройки",
 			"control"	:	"Управление",
@@ -87,7 +87,7 @@ function storageValue(key,val)
 }
 
 // Messages language initialization by default value
-var messagesLanguage='ru'
+var messagesLanguage='ru-RU'
 // Function for getting message by key
 var getMsg=function(key, lang){
 	return props.msgs[lang||messagesLanguage][key]
