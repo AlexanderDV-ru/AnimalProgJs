@@ -1,4 +1,3 @@
-//--- Name: AnimalProgJs/Vesion: 0.0.2a/Authors: AlexanderDV/Description: Main AnimalProgJs .js. ---
 var programInfo={
 	name : "AnimalProgJs",
 	version : "0.0.2a",
